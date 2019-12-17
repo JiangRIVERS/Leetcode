@@ -26,3 +26,34 @@
 >E　C　　　I　H　　　　N
 >
 >T　　　　　S　　　　　G
+
+## 解法：
+找规律就可以了
+
+代码：
+
+    class Solution:
+        def convert(self, s: str, numRows: int) -> str:
+            if numRows<2:return s
+            r=['' for i in range(numRows)]
+            for idx,item in enumerate(s):
+                ridx=idx%(2*numRows-2)
+                if ridx>(numRows-1):
+                    ridx=(2*numRows-2-ridx)
+                r[ridx]+=item
+            return ''.join(r)
+            
+执行用时 :
+52 ms
+, 在所有 python3 提交中击败了
+98.18%
+的用户
+内存消耗 :
+12.7 MB
+, 在所有 python3 提交中击败了
+99.83%
+的用户
+
+注意r=['' for i in range(numRows)]这段代码的使用，
+达到了产生多个字符串的列表效果。
+
