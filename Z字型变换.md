@@ -4,28 +4,28 @@
 
 示例1：
 比如输入字符串为 "LEETCODEISHIRING" 行数为 3 时，排列如下：
->L　　　C　　　I　　　　R
+> L　　　C　　　I　　　　R
 >
->E　T　O　E　　S　I　　I　　G
+> E　T　O　E　　S　I　　I　　G
 >
->E　　　D　　　H　　　　N
+> E　　　D　　　H　　　　N
 
 之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如："LCIRETOESIIGEDHN"。
 
 示例2:
->输入: s = "LEETCODEISHIRING", numRows = 4
+> 输入: s = "LEETCODEISHIRING", numRows = 4
 >
->输出: "LDREOEIIECIHNTSG"
+> 输出: "LDREOEIIECIHNTSG"
 >
 > 解释:
 >
->L　　　　　D　　　　　R
+> L　　　　　D　　　　　R
 >
->E　　　O　E　　　I　　I
+> E　　　O　E　　　I　　I
 >
->E　C　　　I　H　　　　N
+> E　C　　　I　H　　　　N
 >
->T　　　　　S　　　　　G
+> T　　　　　S　　　　　G
 
 ## 解法：
 找规律就可以了
