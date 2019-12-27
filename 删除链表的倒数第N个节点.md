@@ -12,33 +12,35 @@
 
 进阶：你能尝试使用一趟扫描实现吗？
 
+# 解法
+双指针
 
+代码：
 
+    # Definition for singly-linked list.
+    # class ListNode:
+    #     def __init__(self, x):
+    #         self.val = x
+    #         self.next = None
 
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-class Solution:
-    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
-        pre=head
-        end=pre.next
-        while n-1>0:
-            end=end.next
-            n-=1
+    class Solution:
+        def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+            pre=head
+            end=pre.next
+            while n-1>0:
+                end=end.next
+                n-=1
         
-        if not end:
-            head=head.next
+            if not end:
+                head=head.next
+                return head
+
+            while end.next!= None:
+                pre=pre.next
+                end=end.next
+        
+            pre.next=pre.next.next
             return head
-
-        while end.next!= None:
-            pre=pre.next
-            end=end.next
-        
-        pre.next=pre.next.next
-        return head
         
 执行用时 :
 36 ms
@@ -51,27 +53,29 @@ class Solution:
 99.59%
 的用户
 
+改用哑头结点，从而不用考虑被删除的是否为head节点。
 
+代码：
 
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+    # Definition for singly-linked list.
+    # class ListNode:
+    #     def __init__(self, x):
+    #         self.val = x
+    #         self.next = None
 
-class Solution:
-    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
-        dummy=ListNode(0)
-        dummy.next=head
+    class Solution:
+        def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+            dummy=ListNode(0)
+            dummy.next=head
 
-        fast,slow=dummy,dummy
-        for i in range(n):
-            fast=fast.next
-        while fast.next:
-            slow=slow.next
-            fast=fast.next
-        slow.next=slow.next.next
-        return dummy.next
+            fast,slow=dummy,dummy
+            for i in range(n):
+                fast=fast.next
+            while fast.next:
+                slow=slow.next
+                fast=fast.next
+            slow.next=slow.next.next
+            return dummy.next
         
 执行用时 :
 24 ms
